@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "camsarmoury",
+  "version": "${version}",
+  "name": "Cam's Armoury",
+  "description": "Adds a handful of weapons and tools that have their own little gimmicks.",
+  "authors": [
+    "Cammie"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/cams-armoury",
+    "issues": "https://github.com/CammiePone/Cams-Armoury/issues",
+    "repo": "https://github.com/CammiePone/Cams-Armoury"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/camsarmoury/textures/item/spear.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.camscorner.camsarmoury.CamsArmoury"
+    ]
+  },
+  "mixins": [
+    "camsarmoury.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.10.8",
+    "fabric": "*",
+    "minecraft": "1.16.4"
+  }
+}
