@@ -28,14 +28,10 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Velocity
 		{
 			if(world.isClient())
 			{
-				SquaredVelocityMessage.send((float) getVelocity().lengthSquared() * 160);
-			}
-			else
-			{
 				if(hasVehicle())
-				{
-					setSqVelocity((float) getVehicle().getVelocity().lengthSquared() * 160);
-				}
+					SquaredVelocityMessage.send((float) getVehicle().getVelocity().lengthSquared() * 80);
+				else
+					SquaredVelocityMessage.send((float) getVelocity().lengthSquared() * 80);
 			}
 		}
 	}
