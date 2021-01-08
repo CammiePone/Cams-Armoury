@@ -1,8 +1,10 @@
 package dev.camscorner.camsarmoury.core.mixin;
 
-import dev.camscorner.camsarmoury.common.items.SpearItem;
+import dev.camscorner.camsarmoury.common.enchantments.JoustingEnchantment;
 import dev.camscorner.camsarmoury.core.network.client.SquaredVelocityMessage;
 import dev.camscorner.camsarmoury.core.util.VelocityUtils;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,14 +26,14 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Velocity
 	@Inject(method = "tick", at = @At("TAIL"))
 	public void tick(CallbackInfo info)
 	{
-		if(getStackInHand(Hand.MAIN_HAND).getItem() instanceof SpearItem)
+		for(Enchantment enchant : EnchantmentHelper.get(getStackInHand(Hand.MAIN_HAND)).keySet())
 		{
-			if(world.isClient())
+			if(enchant instanceof JoustingEnchantment)
 			{
-				if(hasVehicle())
+				if(world.isClient() && hasVehicle())
+				{
 					SquaredVelocityMessage.send((float) getVehicle().getVelocity().lengthSquared() * 80);
-				else
-					SquaredVelocityMessage.send((float) getVelocity().lengthSquared() * 80);
+				}
 			}
 		}
 	}

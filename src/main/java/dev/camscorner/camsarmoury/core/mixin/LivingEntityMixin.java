@@ -1,7 +1,9 @@
 package dev.camscorner.camsarmoury.core.mixin;
 
-import dev.camscorner.camsarmoury.common.items.SpearItem;
+import dev.camscorner.camsarmoury.common.enchantments.JoustingEnchantment;
 import dev.camscorner.camsarmoury.core.util.VelocityUtils;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -24,15 +26,23 @@ public abstract class LivingEntityMixin extends Entity
 	{
 		if(!world.isClient())
 		{
-			if(source.getAttacker() instanceof PlayerEntity && source.getAttacker() instanceof VelocityUtils &&
-					((PlayerEntity) source.getAttacker()).getStackInHand(Hand.MAIN_HAND).getItem() instanceof SpearItem)
+			if(source.getAttacker() instanceof PlayerEntity && source.getAttacker() instanceof VelocityUtils)
 			{
 				PlayerEntity attacker = (PlayerEntity) source.getAttacker();
-				float damangeMult = MathHelper.clamp(((VelocityUtils) attacker).getSqVelocity(), 1F, 10);
 
-				System.out.println(amount * damangeMult);
+				for(Enchantment enchant : EnchantmentHelper.get(attacker.getStackInHand(Hand.MAIN_HAND)).keySet())
+				{
+					float level = EnchantmentHelper.get(attacker.getStackInHand(Hand.MAIN_HAND)).get(enchant);
 
-				return amount * damangeMult;
+					if(enchant instanceof JoustingEnchantment)
+					{
+						float damangeMult = MathHelper.clamp(((VelocityUtils) attacker).getSqVelocity(), 1F, 1F + (level / 2F));
+
+						System.out.println(amount * damangeMult);
+
+						return amount * damangeMult;
+					}
+				}
 			}
 		}
 

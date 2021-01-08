@@ -1,0 +1,11 @@
+{
+  "#comment": "Tabs",
+  "itemGroup.camsarmoury.general": "Cam's Armoury",
+
+  "#comment": "Items",
+  "item.camsarmoury.ocean_crown": "Ocean Crown",
+  "item.camsarmoury.arquebus": "Arquebus",
+
+  "#comment": "Enchantments",
+  "enchantment.camsarmoury.jousting": "Jousting"
+}

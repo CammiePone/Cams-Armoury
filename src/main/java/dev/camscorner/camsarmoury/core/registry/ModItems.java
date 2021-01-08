@@ -2,7 +2,6 @@ package dev.camscorner.camsarmoury.core.registry;
 
 import dev.camscorner.camsarmoury.CamsArmoury;
 import dev.camscorner.camsarmoury.common.items.ArquebusItem;
-import dev.camscorner.camsarmoury.common.items.SpearItem;
 import dev.camscorner.camsarmoury.common.items.armour.OceanCrownItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterials;
@@ -18,7 +17,6 @@ public class ModItems
 	public static final LinkedHashMap<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
 	//-----Items-----//
-	public static final Item SPEAR = create("spear", new SpearItem(new Item.Settings().group(CamsArmoury.ITEM_GROUP).maxCount(1)));
 	public static final Item OCEAN_CROWN = create("ocean_crown", new OceanCrownItem(ArmorMaterials.TURTLE, EquipmentSlot.HEAD, new Item.Settings().group(CamsArmoury.ITEM_GROUP)));
 //	public static final Item EVOKER_BRACELET = create("evoker_bracelet", new EvokerBraceletItem(new Item.Settings().group(CamsArmoury.ITEM_GROUP).maxCount(1)));
 	public static final Item ARQUEBUS = create("arquebus", new ArquebusItem(new Item.Settings().group(CamsArmoury.ITEM_GROUP).maxCount(1)));
