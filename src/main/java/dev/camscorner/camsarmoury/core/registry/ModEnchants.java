@@ -15,7 +15,7 @@ public class ModEnchants
 	//----Enchantment Map----//
 	public static final LinkedHashMap<Enchantment, Identifier> ENCHANTS = new LinkedHashMap<>();
 
-	public static final Enchantment JOUSTING = create("jousting", new JoustingEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
+	public static final Enchantment JOUSTING = create("jousting", new JoustingEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
 
 	//-----Registry-----//
 	public static void register()

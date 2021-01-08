@@ -18,13 +18,13 @@ public class JoustingEnchantment extends Enchantment
 	@Override
 	public int getMinPower(int level)
 	{
-		return 5 + (level - 1) * 8;
+		return 5 + level * 8;
 	}
 
 	@Override
 	public int getMaxPower(int level)
 	{
-		return this.getMinPower(level) + 20;
+		return getMinPower(level) + 20;
 	}
 
 	@Override

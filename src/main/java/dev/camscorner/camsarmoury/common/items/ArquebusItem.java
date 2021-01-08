@@ -8,6 +8,4 @@ public class ArquebusItem extends Item
 	{
 		super(settings);
 	}
-
-
 }
